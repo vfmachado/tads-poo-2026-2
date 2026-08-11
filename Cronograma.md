@@ -10,9 +10,9 @@
 10. Modelagem OO: diagramas e tradução para código.
 11. Implementação orientada a objetos: padrões de organização de código.
 12. Testes em OO: unidade, integração e cobertura.
-13. Princípios de projeto (ex.: SOLID) e noções de qualidade.
-14. Padrões de projeto criacionais (visão geral e exemplos).
-15. Padrões de projeto estruturais (visão geral e exemplos).
-16. Padrões de projeto comportamentais (visão geral e exemplos).
+13. Object Calisthenics: introdução e regras 1 a 4.
+14. Object Calisthenics: regras 5 a 9 e refatoração orientada a objetos.
+15. SOLID: SRP, OCP e LSP com exemplos em Java.
+16. SOLID: ISP, DIP e integração com Object Calisthenics.
 17. Trabalho Final: análise, modelagem e implementação.
 18. Trabalho Final: testes, refinamento e apresentação.
