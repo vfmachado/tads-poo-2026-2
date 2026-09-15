@@ -1,0 +1,17 @@
+
+Personagem p = new Personagem(); // personagem base
+Espada espada = new Espada(15);
+Arco arco = new Arco(12);
+Cajado cajado = new Cajado(20); // dano magico
+
+Inimigo i1 = new Inimigo(12, 10, 0); // vida, defesa fisica, defesa magica
+Inimigo i2 = new Inimigo(10, 0, 10); // vida, defesa fisica, defesa magica
+
+p.equipar(espada); // espada tem 15 de dano
+p.atacar(i1);  // 15 - 10 = 5 (causa 5 de dano no inimigo)
+i1.getVida(); // 7
+
+p.atacar(i2); // nao causa dano pois tem defesa magica
+p.equipar(cajado);
+p.atacar(i2) // causa 10 de dano a i2
+i2.getVida() // 0
