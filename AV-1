@@ -1,0 +1,303 @@
+# Avaliação de Programação Orientada a Objetos
+
+AO FINAL ENVIAR UM EMAIL PARA 
+
+vinicius.machado+poo2026@riogrande.ifrs.edu.br
+
+**Questão 1.** Em um sistema de seguros, duas apólices distintas possuem exatamente os mesmos valores em todos os atributos (segurado, cobertura, prêmio e vigência). Sobre a relação entre elas, é correto afirmar que:
+
+- **A)** são o mesmo objeto, pois objetos com estado idêntico são indistinguíveis no modelo.
+- **B)** deveriam ser fundidas em uma só, pois a duplicidade de estado indica erro de modelagem.
+- **C)** são objetos distintos, pois a identidade de um objeto é independente da igualdade dos valores de seu estado.
+- **D)** são distintas apenas enquanto o estado for alterado; ao se igualarem passam a ter a mesma identidade.
+- **E)** só podem ser diferenciadas se possuírem um atributo numérico chamado "id".
+
+---
+
+**Questão 2.** Uma classe `ContaInvestimento` oferece `getSaldo()` e `setSaldo(valor)`. Toda a lógica de resgate (verificar carência, calcular imposto, validar saldo) está em uma classe `ServicoResgate`, que apenas consulta e altera o saldo da conta. Essa situação caracteriza principalmente:
+
+- **A)** um objeto anêmico, pois o comportamento do conceito está fora do objeto que guarda seu estado.
+- **B)** um objeto rico, pois o serviço concentra o comportamento de forma organizada.
+- **C)** um objeto imutável, pois o saldo só é modificado em um único lugar.
+- **D)** alta coesão da conta, pois ela possui apenas atributos relacionados entre si.
+- **E)** encapsulamento adequado, pois o atributo `saldo` é acessado por métodos.
+
+---
+
+**Questão 3.** Considere o método `Assinatura renovar()`, que altera a data de término da assinatura e, ao mesmo tempo, devolve a própria assinatura atualizada para ser consultada pelo chamador. Do ponto de vista do princípio Command-Query Separation, o principal problema desse método é que:
+
+- **A)** ele devolve um objeto, e comandos jamais podem devolver qualquer tipo de valor.
+- **B)** ele possui nome de verbo, o que é reservado às consultas.
+- **C)** ele depende de uma data, o que o torna não determinístico.
+- **D)** ele altera a assinatura, e alterações de estado só são permitidas em construtores.
+- **E)** ele mistura o papel de comando (altera estado) com o de consulta (informa estado), dificultando o raciocínio sobre seus efeitos.
+
+---
+
+**Questão 4.** Em um sistema de seguros, `Apolice` define o comportamento comum a todos os produtos (vigência, cálculo de prêmio-base, cancelamento), mas deixa abstrato o cálculo de cobertura, que cada produto especializa. O que caracteriza esse tipo de classe abstrata?
+
+- **A)** Ela deve ser totalmente instanciada para que as subclasses possam usá-la.
+- **B)** Ela reúne estado e comportamento comuns, mas não é instanciada diretamente, pois existe para ser especializada.
+- **C)** Ela não pode ter atributos, apenas declarações de métodos.
+- **D)** Ela impede qualquer subclasse de alterar o comportamento herdado.
+- **E)** Ela substitui a necessidade de contratos entre os objetos.
+
+---
+
+**Questão 5.** Um time modela um sistema de crédito. Ao desenhar `Cliente`, decide incluir "cor favorita" e "time de futebol" porque esses dados existem nos formulários, mas nenhuma regra de concessão os utiliza. Em termos de abstração, essa decisão representa:
+
+- **A)** uma boa prática, pois abstrações devem conter o máximo possível de dados do domínio.
+- **B)** um ganho de coesão, pois todos os dados pertencem ao cliente.
+- **C)** uma exigência do encapsulamento, que obriga registrar todo dado coletado.
+- **D)** a inclusão de detalhes acidentais, que deveriam ser deixados de fora por não serem essenciais ao problema.
+- **E)** uma forma de reduzir acoplamento entre cliente e política de crédito.
+
+---
+
+**Questão 6.** Um sistema de pagamentos oferece o método `boolean estaAprovado()` na classe `Transacao`. Dentro dele, o código também registra em log a data da última consulta e incrementa um contador de acessos que afeta o comportamento de outras operações. Esse método:
+
+- **A)** está correto, pois toda consulta deve registrar sua própria utilização.
+- **B)** viola a expectativa de que consultas não produzam efeitos colaterais observáveis, comprometendo a previsibilidade do objeto.
+- **C)** respeita o Command-Query Separation, pois retorna um valor booleano.
+- **D)** é um comando, pois qualquer método que retorna `boolean` é comando.
+- **E)** é aceitável desde que seja declarado como público.
+
+---
+
+**Questão 7.** Uma equipe substitui os setters `setStatus(...)` e `setDataEntrega(...)` de `Pedido` por operações como `despachar(transportadora)` e `entregar(data)`. A principal vantagem dessa mudança é que:
+
+- **A)** elimina a necessidade de qualquer validação no objeto.
+- **B)** torna o objeto imutável, pois não há mais métodos de alteração.
+- **C)** diminui o número de atributos da classe.
+- **D)** impede que outras classes dependam de `Pedido`.
+- **E)** as operações passam a expressar intenções de negócio e permitem que o objeto garanta transições válidas de estado.
+
+---
+
+**Questão 8.** Uma classe `Relatorio` calcula impostos, formata PDF, envia e-mails e grava no disco. Segundo o conceito de coesão, essa classe tende a apresentar:
+
+- **A)** alta coesão, pois todas as tarefas se relacionam ao relatório.
+- **B)** alta coesão, pois cada método é pequeno.
+- **C)** baixa coesão, pois reúne responsabilidades distintas que mudam por razões diferentes.
+- **D)** baixo acoplamento, pois não depende de outras classes.
+- **E)** forte encapsulamento, pois todo o comportamento está em um só lugar.
+
+---
+
+**Questão 9.** Um curso universitário possui disciplinas oferecidas. Se o curso for extinto, as ofertas daquele curso deixam de existir; já os professores que lecionavam continuam existindo na instituição. Qual modelagem representa melhor essa situação?
+
+- **A)** Oferta de disciplina como parte composta pelo curso; professor associado à oferta, sem dependência existencial.
+- **B)** Oferta de disciplina e professor como partes compostas pelo curso.
+- **C)** Curso como parte composta pelo professor, e oferta associada ao professor.
+- **D)** Todos os relacionamentos como composição, para garantir consistência.
+- **E)** Todos os relacionamentos como dependência temporária, sem navegabilidade.
+
+---
+
+**Questão 10.** Um desenvolvedor faz a classe `Pedido` herdar de `ListaDeItens` apenas para aproveitar os métodos de adicionar e remover itens. O principal problema dessa decisão é que:
+
+- **A)** herança nunca deve ser usada em modelos de domínio.
+- **B)** a herança aumenta automaticamente a coesão de `Pedido`.
+- **C)** `Pedido` deixa de poder colaborar com outros objetos.
+- **D)** herança expressa uma relação conceitual "é-um" e não apenas reuso de código; aqui o pedido expõe operações da lista que podem violar suas próprias regras, e a composição seria mais adequada.
+- **E)** a herança obriga `Pedido` a ser imutável.
+
+---
+
+**Questão 11.** Em um sistema de pagamentos, o tipo `Dinheiro` (valor e moeda) é implementado sem operações de alteração: somar dois valores produz um novo objeto. Qual é uma vantagem direta dessa imutabilidade?
+
+- **A)** O objeto pode ser compartilhado entre vários clientes sem risco de que um deles altere o estado visto pelos demais.
+- **B)** O sistema nunca precisará criar novas instâncias.
+- **C)** O objeto deixa de precisar de regras de validação.
+- **D)** A identidade do objeto passa a ser irrelevante em qualquer contexto.
+- **E)** O objeto não pode ser associado a outros objetos.
+
+---
+
+**Questão 12.** Uma classe `Projeto` guarda uma lista de tarefas e oferece `getTarefas()`, que devolve a própria lista interna. Qual é o risco principal dessa decisão?
+
+- **A)** A lista ficará imutável, impedindo a adição de tarefas pelo projeto.
+- **B)** A classe passará a ter menos atributos.
+- **C)** Haverá aumento da coesão por centralizar as tarefas.
+- **D)** Clientes podem adicionar ou remover tarefas diretamente, contornando regras e invariantes do projeto.
+- **E)** O projeto deixará de poder se relacionar com tarefas.
+
+---
+
+**Questão 13.** Uma loja virtual modela `Carrinho` e `ItemDoCarrinho`. Um item não faz sentido fora de um carrinho e deve desaparecer quando o carrinho é descartado. Em UML, essa relação é mais bem representada por:
+
+- **A)** associação bidirecional com multiplicidade muito-para-muitos.
+- **B)** composição, com o losango preenchido ao lado de `Carrinho`.
+- **C)** agregação, com o losango vazio ao lado de `ItemDoCarrinho`.
+- **D)** dependência, representada por seta pontilhada de `Carrinho` para `ItemDoCarrinho`.
+- **E)** generalização, com `ItemDoCarrinho` especializando `Carrinho`.
+
+---
+
+**Questão 14.** Um modelo de logística usa a classe `Entrega` com os atributos `String cep`, `String rua`, `String cidade` e `String estado`, repetidos em várias outras classes, com validações duplicadas de CEP. Que problema de design está presente e qual é a direção de solução?
+
+- **A)** Baixa coesão do motorista; mover os atributos para a classe `Motorista`.
+- **B)** Objeto Deus; dividir `Entrega` em subclasses por cidade.
+- **C)** Herança inadequada; fazer `Entrega` herdar de `Endereco`.
+- **D)** Excesso de encapsulamento; tornar todos os campos públicos.
+- **E)** Primitive obsession (e *data clump*); extrair um objeto de valor `Endereco` que concentre validação e comportamento.
+
+---
+
+**Questão 15.** Sobre o princípio Tell, Don't Ask, qual alternativa o ilustra corretamente?
+
+- **A)** Perguntar o saldo à conta e decidir, no chamador, se o saque é permitido.
+- **B)** Obter todos os atributos de um objeto para calcular externamente o resultado.
+- **C)** Pedir à conta que realize o saque, deixando que ela mesma decida e garanta suas regras.
+- **D)** Criar getters para cada atributo e centralizar as decisões em uma classe de serviço.
+- **E)** Retornar valores booleanos para que o cliente escolha o próximo passo.
+
+---
+
+**Questão 16.** Em um sistema acadêmico, `Matricula` associa `Aluno` e `Disciplina` e precisa armazenar nota final, frequência e situação. Esses dados não pertencem nem ao aluno nem à disciplina isoladamente. Como a relação deve ser modelada?
+
+- **A)** Como atributo `nota` dentro de `Aluno`, pois aluno é o ator principal.
+- **B)** Como atributos `frequencia` na `Disciplina`, pois ela define as regras.
+- **C)** Como herança, com `Aluno` herdando de `Disciplina`.
+- **D)** Como composição de `Disciplina` por `Aluno`.
+- **E)** Como uma classe associativa, que representa o vínculo e guarda seu estado e comportamento próprios.
+
+---
+
+**Questão 17.** Um sistema recebe uma variável do tipo `MeioPagamento` (interface) que, em tempo de execução, referencia um objeto `Pix` ou `CartaoCredito`. Ao enviar a mensagem `autorizar(valor)`, o que ocorre?
+
+- **A)** Sempre é executado o comportamento de `MeioPagamento`, pois é o tipo da variável.
+- **B)** É executado o comportamento da implementação real do objeto, sem que o cliente precise conhecer a classe concreta.
+- **C)** O cliente precisa verificar o tipo do objeto antes de chamar o método.
+- **D)** A chamada falha, pois interfaces não podem ser usadas como tipo de variável.
+- **E)** O comportamento é escolhido pelo compilador, com base apenas no nome do método.
+
+---
+
+**Questão 18.** Um serviço de renovação de contratos passa a depender da interface `RepositorioDeContratos` em vez de uma classe concreta de acesso a arquivos. Qual é o principal efeito dessa decisão sobre o design?
+
+- **A)** Reduz o acoplamento: o serviço conhece apenas o contrato, e a implementação pode ser trocada sem alterá-lo.
+- **B)** Elimina a necessidade de qualquer implementação concreta.
+- **C)** Aumenta o acoplamento, pois o serviço passa a depender de duas classes.
+- **D)** Torna o serviço imutável.
+- **E)** Impede que o repositório seja testado isoladamente.
+
+---
+
+**Questão 19.** Uma classe `Funcionario` possui o método `calcularImpostoDeRenda()`, o método `gerarContraCheque()` e o método `exportarParaPlanilha()`. Cada um muda por razões diferentes e é solicitado por áreas distintas da empresa. A melhor decisão de design é:
+
+- **A)** manter tudo junto, pois a classe representa um único conceito do domínio.
+- **B)** transferir tudo para uma classe utilitária estática com todos os métodos.
+- **C)** reorganizar as responsabilidades, extraindo classes para cálculo fiscal, contracheque e exportação, avaliando o custo de fragmentar demais.
+- **D)** criar um método `executarTudo()` para esconder a complexidade.
+- **E)** transformar `Funcionario` em um registro de dados e deixar todo comportamento fora.
+
+---
+
+**Questão 20.** Uma classe `Conta` valida seu saldo apenas no construtor, mas expõe `setSaldo(valor)` público sem nenhuma verificação. Qual é a consequência para as invariantes?
+
+- **A)** Nenhuma, pois a validação inicial basta para garantir todas as regras.
+- **B)** A invariante passa a valer automaticamente em qualquer método.
+- **C)** Fica garantido que o saldo é imutável após a criação.
+- **D)** A invariante pode ser quebrada a qualquer momento por qualquer cliente, pois o objeto não protege seu próprio estado.
+- **E)** A classe terá maior coesão, pois a validação ficou concentrada.
+
+---
+
+**Questão 21.** Uma equipe argumenta: "Basta declarar todos os atributos como `private` e gerar getters e setters para ter encapsulamento." Essa afirmação está:
+
+- **A)** correta, pois a visibilidade restrita é suficiente para proteger o estado.
+- **B)** correta, desde que os setters sejam públicos.
+- **C)** correta, pois getters e setters garantem a validação das invariantes.
+- **D)** incorreta, pois ocultar atributos sem restringir operações que os expõem ou alteram livremente não protege invariantes nem esconde decisões de design.
+- **E)** incorreta, pois encapsulamento exige que nenhum atributo exista.
+
+---
+
+**Questão 22.** Em um sistema de contratos, o objeto `Contrato` possui `Clausula`s que não existem fora dele e uma referência a `Parte` (contratante), que existe independentemente e participa de vários contratos. Qual é a representação mais adequada?
+
+- **A)** `Clausula` e `Parte` ambas compostas por `Contrato`.
+- **B)** `Clausula` associada a `Parte`, e `Contrato` como dependência de ambas.
+- **C)** `Clausula` como composição de `Contrato`, e `Parte` como associação (ou agregação) a `Contrato`.
+- **D)** `Parte` como composição de `Contrato`, e `Clausula` como associação.
+- **E)** Ambas como generalização de `Contrato`.
+
+---
+
+**Questão 23.** Uma operação `cancelarPedido()` deve garantir que um pedido já entregue não possa ser cancelado. Qual abordagem protege melhor essa regra?
+
+- **A)** A própria classe `Pedido` verifica o estado e recusa a operação quando inválida, mantendo a regra junto aos dados que protege.
+- **B)** Cada tela da aplicação verifica o status antes de chamar o cancelamento.
+- **C)** Uma classe externa consulta o status por getter e então altera o campo por setter.
+- **D)** A regra é documentada em um manual, sem verificação em código.
+- **E)** O status é público para que cada cliente decida o que fazer.
+
+---
+
+**Questão 24.** Sobre navegabilidade em associações, é correto afirmar que:
+
+- **A)** toda associação deve ser bidirecional para garantir consistência.
+- **B)** uma associação unidirecional indica que apenas um dos lados conhece o outro, o que reduz acoplamento e manutenção de consistência.
+- **C)** navegabilidade é sinônimo de cardinalidade.
+- **D)** associação bidirecional elimina a necessidade de sincronizar os dois lados.
+- **E)** a navegabilidade define se a relação é composição ou agregação.
+
+---
+
+**Questão 25.** Em uma plataforma de pagamentos, cartão, Pix e boleto precisam apenas cumprir o contrato `autorizar(valor)`, sem compartilhar código nem estado entre si. Qual é a abstração mais adequada para expressar isso?
+
+- **A)** Uma classe concreta com um grande condicional que trata cada meio de pagamento.
+- **B)** Uma classe abstrata com atributos obrigatórios herdados por todos os meios.
+- **C)** Fazer `Pix` herdar de `Cartao`, pois ambos são pagamentos eletrônicos.
+- **D)** Um atributo público de texto que identifica o tipo de pagamento.
+- **E)** Uma interface que define o contrato, implementada de forma independente por cada meio de pagamento.
+
+---
+
+**Questão 26.** Um desenvolvedor afirma que objetos imutáveis são sempre melhores, e passa a recriar integralmente um `Pedido` com mil itens a cada pequena alteração. Do ponto de vista de design, o mais adequado é:
+
+- **A)** manter a decisão, pois imutabilidade nunca possui custos.
+- **B)** avaliar o contexto: imutabilidade é valiosa para valores e compartilhamento seguro, mas entidades com ciclo de vida e evolução de estado podem justificar mutabilidade controlada.
+- **C)** tornar tudo mutável, pois imutabilidade prejudica o encapsulamento.
+- **D)** usar imutabilidade apenas em classes abstratas.
+- **E)** abolir a identidade dos objetos para simplificar o modelo.
+
+---
+
+**Questão 27.** Uma equipe avalia modelar `Assinatura` como subclasse de `Plano`, apenas porque ambos têm preço e periodicidade. Em qual situação a composição é preferível à herança?
+
+- **A)** Sempre que as classes possuírem atributos com nomes iguais.
+- **B)** Quando se deseja que a subclasse herde automaticamente todas as invariantes da superclasse.
+- **C)** Quando a hierarquia for pequena, com apenas dois níveis.
+- **D)** Quando não há uma relação "é-um" substituível, ou quando o comportamento precisa variar sem acoplar-se à implementação da superclasse.
+- **E)** Quando a classe precisa ser abstrata.
+
+---
+
+**Questão 28.** Um analista afirma: "Dividir cada conceito em classes minúsculas sempre aumenta a coesão e melhora o design". A crítica mais adequada é:
+
+- **A)** correta, pois quanto menor a classe, melhor o design.
+- **B)** correta, pois coesão depende apenas do número de métodos.
+- **C)** incorreta, pois classes devem ser sempre grandes para reduzir acoplamento.
+- **D)** incorreta, pois coesão só se aplica a métodos, não a classes.
+- **E)** parcialmente correta: a fragmentação excessiva espalha a lógica, dificulta a navegação e pode aumentar o acoplamento sem ganho real de coesão.
+
+---
+
+**Questão 29.** Em uma plataforma de assinaturas, o método `Plano.calcularMensalidade()` precisa de um desconto que depende do tempo de contrato do cliente. A equipe discute onde colocar a regra. A abordagem mais coerente com responsabilidades bem distribuídas é:
+
+- **A)** colocar a regra em uma classe utilitária estática com todos os cálculos do sistema.
+- **B)** colocar a regra na tela, para facilitar a alteração visual.
+- **C)** alocar a regra no objeto que possui os dados e o conhecimento necessário (por exemplo, `Assinatura`), deixando a colaboração explícita entre `Plano` e `Assinatura`.
+- **D)** duplicar a regra em todas as classes que precisarem dela.
+- **E)** transformar o desconto em um atributo público do cliente.
+
+---
+
+**Questão 30.** Em que situação o uso de herança de tipo é conceitualmente adequado?
+
+- **A)** Quando a subclasse pode ser usada no lugar da superclasse sem violar o comportamento esperado por quem a utiliza.
+- **B)** Sempre que duas classes compartilharem alguns atributos.
+- **C)** Quando se deseja evitar a escrita de construtores.
+- **D)** Sempre que se pretende reduzir o acoplamento do sistema.
+- **E)** Quando a subclasse precisa remover ou desativar comportamentos da superclasse.
