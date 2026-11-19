@@ -1,0 +1,22 @@
+Empréstimo: Código Limpo para Ana (devolver até 2026-03-09)
+Empréstimo: Refatoração para Ana (devolver até 2026-03-09)
+Empréstimo: Domain-Driven Design para Bruno (devolver até 2026-03-16)
+Empréstimo: Java Efetivo para Carla (devolver até 2026-03-05)
+Recusado: limite de empréstimos atingido
+Recusado: livro já emprestado
+Devolução: Código Limpo — atraso de 0 dia(s) — multa R$ 0,00
+Devolução: Refatoração — atraso de 3 dia(s) — multa R$ 3,00
+  [e-mail para ana@aluno.ifrs.edu.br] Olá, Ana. Sua devolução gerou multa de R$ 3,00.
+Recusado: usuário com multa pendente
+Pagamento: Ana pagou R$ 3,00 — débito restante R$ 0,00
+Empréstimo: Padrões de Projeto para Ana (devolver até 2026-03-19)
+Devolução: Domain-Driven Design — atraso de 4 dia(s) — multa R$ 2,00
+  [e-mail para bruno@ifrs.edu.br] Olá, Bruno. Sua devolução gerou multa de R$ 2,00.
+Devolução: Java Efetivo — atraso de 20 dia(s) — multa R$ 20,00
+  [e-mail para carla@email.com] Olá, Carla. Sua devolução gerou multa de R$ 20,00.
+=== Relatório em 2026-03-25 ===
+Débitos:
+  Bruno: R$ 2,00
+  Carla: R$ 20,00
+Empréstimos em aberto:
+  Padrões de Projeto (Ana) — previsto 2026-03-19 — ATRASADO
